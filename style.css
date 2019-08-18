@@ -1,0 +1,50 @@
+.header{
+    padding: 10px; /*Space above and below text*/
+    color: #fff; /*Color of the text*/
+    background:navy;
+    font-variant-caps: small-caps;
+    border-style:solid;
+    border-color:white;
+    font-size: 50px
+}
+
+.title{
+    padding: 5px; /*Space above and below text*/
+    color: #fff; /*Color of the text*/
+    background:rgb(66, 66, 243);
+    font-variant-caps: small-caps;
+    font-size: 35px;
+    border-style:solid;
+    border-color:white;
+}
+
+.subtitle{
+    padding: 5px; /*Space above and below text*/
+    color: rgb(29, 13, 102); /*Color of the text*/
+    background: white;
+    font-variant-caps: small-caps;
+    font-size: 25px;
+    border-style:solid;
+    border-color:white;
+}
+
+p{
+    font-family: "arial";
+    font-size: 15px;
+    text-align: justify
+}
+
+ul{
+    list-style-position: inside;
+}
+
+img{
+    overflow: auto;
+    float:left;
+    size:auto
+}
+
+.imgborder{
+    background:blue;
+}
+
