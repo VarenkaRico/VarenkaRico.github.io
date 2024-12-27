@@ -2,9 +2,8 @@
 <html lang="en-us">
 
 <head>
-
   <meta charset="UTF-8">
-  <title>Varenka Rico's Projects</title>
+  <title>Personal Projects</title>
 
   <!-- Bootstrap stylesheet -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,93 +12,140 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">VRJ</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link disabled" href="#">Home <span class="sr-only"></span></a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Projects
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="PyWeather.html">PyWeather</a>
-          <a class="dropdown-item" href="#">Other Project</a>
-          <a class="dropdown-item" href="#">Other Project</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="./assets/VRJ_Logo.png" alt="Varenka Rico Logo" class="img_logo" />
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link disabled" href="#">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="PyWeather.html">PyWeather</a>
+            <a class="dropdown-item" href="#">Other Project</a>
+          </div>
+        </li>
+        <li class ="nav-item">
+            <a class="nav-link disabled" href="#">Contact</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id = "navbarDropdown_CV" role = "button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Download CV</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown_CV">
+            <a class="dropdown-item" href="https://drive.google.com/file/d/1deuqCQOWFFb0eqaUEgkWqdl53xblzKrk/view?usp=sharing">Español</a>
+            <a class="dropdown-item" href="https://drive.google.com/file/d/1ZaEjM5Fpjwd1jSh0Z9VWN9tHVF-tctj9/view?usp=sharing">English</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="container-fluid">
-
     <!-- TITLE -->
     <div class="row">
-      
       <div class="col-md-12">
-            <div class="header">
-                <h1>Varenka Rico's Projects</h1>
-            </div>
+        <div class="header">
+          <h1>Personal Portfolio</h1>
         </div>
+      </div>
     </div>
 
     <div class="row">
-      
       <div class="col-md-12">
-            <div class="title">
-                <h2>Brief presentation</h2>
-            </div>
+        <div class="title">
+          <h2>Brief Presentation</h2>
         </div>
+      </div>
     </div>
 
     <!-- PHOTO AND PRESENTATION -->
-    <div class="row">
+    <div class="center-container">
+        <!-- PHOTO -->
+        <img src="./assets/VRJ photo.jpg" alt="Varenka Rico Profile Picture" class="img" />
 
-      <!-- PHOTO -->
-        <div class="col-sm-2 col-md-3">
-            <img src="VRJ photo.jpg" alt="Varenka Rico" class="img-fluid" alt="Responsive image">
-        </div>
-    
-      <!-- Second of two columns -->
-      <div class="col-sm-10 col-md-9">
-        <p>My name is Varenka Rico and I live in Mexico City. </br></br>
-            Probably you are curious about my name, so here it is: </br></br>
-            YES, my name is Russian; </br>
-            NO, I am not Russian; </br>
-            NO, neither are my parents nor grandparents. </br>
-            It is only a Russian name, usually misspelled by Starbucks bartenders (this makes my trips for coffee 
-            more interesting).</p>
-      </div>
+        <!-- TEXT -->
+          <p>
+            <div class="col-md-12">
+              <div class="title">
+                Varenka Rico
+              </div>
+            </div>
+          </p>
+          <p>
+            <div class="col-md-12">
+              <div class="suptitle">
+                Data Analyst
+              </div>
+            </div>
+          </p>
+    </div>
+    <div class="col-12 mt-3">
+        <p>Probably you are curious about my name, so here it is:</p>
+        <ul>
+          <li>YES, my name is Russian;</li>
+          <li>NO, I am not Russian;</li>
+          <li>NO, neither are my parents nor grandparents.</li>
+        </ul>
+        <p>
+          It is only a Russian name, usually misspelled by Starbucks bartenders.
+        </p>
+    </div>
 
-      <div class="col-12">
-        <p>I find Data Analysis both interesting and challenging, so I have being studying for the last year to learn
-          some of the tools used. In this webpage you will find links to some projects I have worked in during this period
-           of time.
-          </br>
-          </br>
-          The main tools used are: Python and Jupyter Notebook with different libraries. I hope you find them interesting.
-          </br>
-          </br>
-          By the way, this webpage was programmed from zero in HTML with the help of Bootstrap.
+    <div class="col-12 mt-3">
+        <p>
+          I am passionate about Data. Through my +10 years of experience I have focused on Business Intelligence and Data Analytics. 
+          I am also a learnaholic, so currently I am studying the Masters in Data Science at the ITAM, one of Mexico's top universities. 
+          Before this, I successfully completed the Data Analytics Bootcamp and earned my bachelor's degree in Business Creation and Development both at 
+          the Tec de Monterrey. These studies, among other non-formal studies in platforms such as Coursera and Linked In, and my work experience have given 
+          me tools to combine Data Analytics and Business Intelligence into my professional work. My main objective have been bringing data and insights 
+          to improve the decision making process and achieving lower costs on imports and costs of inventory at 
+            <a href = "https://www.eltngl.com/" target ="_blank">National Geographic Learning</a>, 
+          better understanding of populations of interest at the 
+            <a href = "https://www.acnur.org/mx/" target ="_blank">UNHCR (the UN Agency for Refugees)</a> and
+          improving the database architecture at 
+            <a href = "https://tada.mx/" target ="_blank">TADÁ</a> 
+            (payroll platform startup) to achieve a business ready to use data as it's main asset.
+        </p>
+        <h3>
+          Publications
+        </h3>
+        <p>
+          I have been published by Nexos when the Coronavirus Crisis. You can read the articles (spanish) in the following links:
+          <ul>
+            <li> 
+                <a href = "https://datos.nexos.com.mx/las-conferencias-y-la-meseta-interminable/" target ="_blank">
+                    Las conferencias y la meseta interminable</a>
+                    Critic on how data was presented by the government to avoid showing an ascending tendency in number of people being reported as
+                    sick and, mainly, number of deaths caused by COVID-19 in Mexico.
+            </li>
+            <li>
+                <a href = "https://datos.nexos.com.mx/la-desaceleracion-en-defunciones-por-covid-19-puede-no-ser-lo-que-parece/" target="_blank">
+                    La desaceleración en defunciones por covid-19 puede no ser lo que parece</a>
+                    A more in depth analysis on why the information given by the government regarding deaths caused by COVID-19 was misleading.
+            </li>
+          </ul>
         </p>
       </div>
     </div>
-
-    
   </div>
 
+  <div class="col-12 mt-3">  
+    <h3>Contact Information</h3>
+      <div class="info-item">
+        <a href="mailto:varenka.rico@gmail.com">varenka.rico@gmail.com</a>
+            </div>
+            <div class="info-item">
+                <a href="https://www.linkedin.com/in/varenka-rico/" target="_blank">
+                    <img src="./assets/linkedin-logo.png" alt="LinkedIn Icon" class="img_rss_logo" />
+                </a>
+            </div>
+    </div>
+  </div>
 </body>
 
 </html>
