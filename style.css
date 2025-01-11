@@ -15,8 +15,6 @@
     background:rgb(66, 66, 243);*/
     font-variant-caps: small-caps;
     font-size: 35px;
-    border-style:solid;
-    border-color:white;
     text-align: center;
 }
 
@@ -26,14 +24,34 @@
     background: white;*/
     font-variant-caps: small-caps;
     font-size: 25px;
-    border-style:solid;
-    border-color:white;
     text-align: center;
+}
+
+.subtitle_left{
+    padding: 5px; /*Space above and below text*/
+    /*color: rgb(29, 13, 102); /*Color of the text
+    background: white;*/
+    font-variant-caps: small-caps;
+    font-size: 25px;
+    text-align: left;
+}
+
+.subtitle4_left{
+    padding: 5px; /*Space above and below text*/
+    /*color: rgb(29, 13, 102); /*Color of the text
+    background: white;*/
+    font-variant-caps: small-caps;
+    font-size: 25px;
+    text-align: left;
 }
 
 p{
     font-family: "arial";
     font-size: 15px;
+    text-align: justify
+}
+
+li{
     text-align: justify
 }
 

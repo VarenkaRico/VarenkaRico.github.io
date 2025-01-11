@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Varenka Rico's Projects</title>
+
+  <!-- Bootstrap stylesheet -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../style.css">
+  
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="../assets/VRJ_Logo.png" alt="Varenka Rico Logo" class="img_logo" />
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../PyWeather.html">PyWeather</a>
+                        <a class="dropdown-item" href="ChangeTemp.html">Temperature Change (FMI)</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id = "navbarDropdown_CV" role = "button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Download CV</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_CV">
+                        <a class="dropdown-item" href="https://drive.google.com/file/d/1deuqCQOWFFb0eqaUEgkWqdl53xblzKrk/view?usp=sharing">Español</a>
+                        <a class="dropdown-item" href="https://drive.google.com/file/d/1ZaEjM5Fpjwd1jSh0Z9VWN9tHVF-tctj9/view?usp=sharing">English</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <!-- HEADER -->
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <div class="header">
+                    <h1>Analysis of Temperature Change</h1>
+                </div>
+            </div>
+        </div>
+    
+
+        <!--INTRO & OBJECTIVES-->
+        <div class="row">     
+            <div class="col-md-8 mt-3">
+                <div class="subtitle_left">
+                    <h3>Introduction</h3>
+                </div>
+                
+                <p style="text-align: justify;">
+                        The Paris Agreement has established the objective of limiting greenhouse gas emissions to ensure that the global temperature increase remains well below 2°C above 
+                        pre-industrial levels. However, it has also been widely recognized that striving for a more ambitious target of limiting the increase to 1.5°C would result in 
+                        significantly lower climate change impacts. Consequently, the signatory countries of the agreement have committed to working towards this more stringent target.
+                </p>
+                <p style="text-align: justify;">
+                        This temperature change is not evaluated on a monthly or yearly basis due to the inherent natural variability of the climate. Instead, a long-term perspective, 
+                        typically over a 10-year period, is used to assess progress. This long-term approach accounts for short-term fluctuations caused by natural phenomena, 
+                        ensuring that trends rather than isolated events are the focus.
+                </p>
+                <p style="text-align: justify;">   
+                        Nevertheless, an individual year with a temperature increase exceeding 1.5°C should not be overlooked. Such an occurrence is particularly concerning if it aligns with 
+                        an upward trend rather than a constant or declining trajectory. This is especially critical given that reports have already highlighted a general increase in global 
+                        temperatures. Persistent upward trends underscore the urgency of achieving the Paris Agreement’s objectives to mitigate the severe consequences of climate change.
+                </p>
+                <p style="text-align: justify;">
+                        The IMF has made available a yearly database with the information of the temperature change for each country (
+                            <a href="https://climatedata.imf.org/datasets/4063314923d74187be9596f10d034914/about" target ="_blank">IMF Climate Data</a>). 
+                        The information shows the change in surface temperature measure against a baseline between 1951-1980.
+    
+                </p>
+                <div class="subtitle_left">
+                        <h3>Objectives</h3>
+                </div>
+                <p style="text-align: justify;">
+                        The objectives of the current analysis is to:
+                        <li>Identify patterns in data</li>
+                        <li>Cluster countries based on the change in temperature variable</li>
+                        <li>Forecast the next years change expected for each country with a SARIMA Model</li>
+                </p>
+            </div>
+            
+            <div class="col-md-4 mt-3" style="align-content: center;">
+                <img src="assets/Img_WorldTempChange_UNCC.jpg" 
+                    alt="Trafficlight for climate change" class="img-fluid" alt="Responsive image">
+            </div>
+        </div>
+        
+
+        <!--EDA-->
+        <div class="row"> 
+            <div class="col-md-8 mt-3">
+                <div class="subtitle_left">
+                    <h3>Understanding the data</h3>
+                </div>
+                
+                <p style="text-align: justify;">
+                    Exploring the data, the information is cleaned and transformed. A sample of the resulting country dataframe is shown to exemplify:
+                    <li><b>Country</b>, <b>ISO2</b> and <b>ISO3</b> are related, there should be no duplicates in these variables.
+                        This might be important when working with other data sources, ISO2 or ISO3 could be used as variables to merge information when needed, since country names
+                        may vary from data sources due to abbreviations (Rep. Vs Republic), language (France Vs Francia), spelling (México Vs Méjico) or the use of names in official 
+                        language Vs translation (Cotê d'Ivoire Vs Ivory Coast). To maintain consistancy, ISO2 will be used and the other 2 variables with ISO2 included, will be kept in a 
+                        different dataframe to keep the relation and when needed, be used for clarity. 
+                        Analyzing further, continents (Africa, Americas, Antartica, Asia, Europe, Oceania) and the World consolidated information are also included, so this regions will be 
+                        separated from the database of countries to be used accordingly (the regions do not present any null value).</li>
+                    <li><b>Indicator</b> has only one vale (Temperature change with respect to a baseline climatology, corresponding to the period 1951-1980) which is mentioned and should
+                        be only considered for context but it does not provide additional information for each country.</li>
+                    <li><b>Source</b>, <b>CTS_Code</b>, <b>CTS_Name</b> and <b>CTS_Full_Descriptor</b> have only one value. Since they do not enrich the analysis and are common for 
+                        all countries, they will be dropped from the dataframe to have a more efficient analysis process, but will be considered in all the process to correctly
+                        inform the results.</li>
+                    <li><b>Unit</b> has only one value (Celsius). Once confirmed all temperature changes are expressed in Celsius (°C), data will not need to be converted from or to 
+                        another unit system. It will also be dropped from the dataframe, but kept in mind through all the analysis and conclusions.</li>
+                    <li><b>Indicator</b> has only one value (Temperature change with respect to a baseline climatology, corresponding to the period 1951-1980). Since it does not give any 
+                        additional information, it will be dropped from de dataframe to have a more efficient analysis process, but it will be considered in all the process to correctly
+                        inform the results.</li>
+                    <li><b>F1961 - F2023</b> are the changes in temperature respect to a baseline. This variables will be unpivoted so there is an additional variable (column) 'Year' and 
+                    the corresponding variable 'TempChange'. This will help with the analysis performance. Additionally, a 'Year_Num' as a discrete variable instead of categorical.</li>
+                    </p>
+                    
+                </div>
+            
+                <div class="col-md-4 mt-3" style="align-content: center;">
+                    <img src="assets/code_DfTempCtryUnpivot.png" 
+                        alt="Trafficlight for climate change" class="img-fluid" alt="Responsive image">
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <div class="subtitle_left">
+                    <h3>General analysis</h3>
+                    <h5>World</h5>
+                </div>
+                <p style="text-align: justify;">
+                    The world subset contains no null or missing values for the temperature change variable. A general statistical analysis is presented below. 
+                    However, since the data represents a time series, the analysis should not be interpreted without considering the temporal context. 
+                    Key observations include that the lowest recorded drop in temperature relative to the baseline is <b>-0.313°C</b>, while the highest recorded increase is <b>1.767°C</b>. 
+                    Without the inclusion of time as a factor, these figures provide limited insights.
+                </p>
+            </div>
+            <div class="col-md-12 mt-3 d-flex justify-content-center">
+                <img src="assets/code_DfTempWorldUnpivot_describe.png" 
+                     alt="World Temperature Change general summary" 
+                     class="img-fluid" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="col-md-12 mt-3">
+                <p style="text-align: justify;">
+                    From the graph below, a clear trend of increasing global temperatures emerges. 
+                    While there are years where the recorded increase is lower than that of the preceding year, the overall trajectory over the 63 years is undeniably upward. 
+                    This trend has been extensively studied and consistently linked to human activity. 
+                    Combining the graph with the statistical summary, we observe that the most significant temperature decrease occurred in 1976, while the largest increase was recorded in 2023. 
+                    These findings highlight the ongoing and critical issue of global warming.
+                </p>
+            </div>
+            <div class="col-md-12 mt-3 d-flex justify-content-center">
+                <img src="assets/gph_WorldTempChange.png" 
+                     alt="World Temperature Change general summary" 
+                     class="img-fluid" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="col-md-12 mt-3">
+                <p style="text-align: justify;">
+                    Since 1978 (with the exception of 1985), the global temperature has remained above the baseline. 
+                    In 1998, it exceeded +1°C for the first time, and since 2012, it has consistently stayed above this threshold, with an ongoing upward trend. 
+                    Moreover, the time required for temperature increases of +0.5°C intervals has been shortening. 
+                    It took approximately 23 years to rise from 0°C to +0.5°C, around 15 years to increase from +0.5°C to +1°C, and near 13 years to transition from +1°C to +1.5°C. 
+                    This acceleration underscores the urgency of addressing global warming trends.
+                </p>
+            </div>
+            <div class="subtitle_left">
+                <h5>Continents</h5>
+                <p>Work in progress...</p>
+            </div>
+        </div>
+
+    
+</body>
+
+</html>

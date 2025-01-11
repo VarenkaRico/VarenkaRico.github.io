@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>IMF Annual Mean Global Surface Temperature Datatable</title>
+
+  <!-- Bootstrap stylesheet -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+ 
+<script>
+  CsvToHtmlTable.init({
+    csv_path: 'assets/IMF_AnnualMeanGlobalSurfaceTemperature.csv',
+    element: 'table-container', 
+    allow_download: true,
+    csv_options: {separator: ',', delimiter: '"'},
+    datatables_options: {"paging": true}
+  });
+</script>
