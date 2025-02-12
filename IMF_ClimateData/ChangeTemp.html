@@ -117,7 +117,7 @@
                         may vary from data sources due to abbreviations (Rep. Vs Republic), language (France Vs Francia), spelling (México Vs Méjico) or the use of names in official 
                         language Vs translation (Cotê d'Ivoire Vs Ivory Coast). To maintain consistancy, ISO2 will be used and the other 2 variables with ISO2 included, will be kept in a 
                         different dataframe to keep the relation and when needed, be used for clarity. 
-                        Analyzing further, continents (Africa, Americas, Antartica, Asia, Europe, Oceania) and the World consolidated information are also included, so this regions will be 
+                        Analyzing further, continents (Africa, Americas, Antartica, Asia, Europe, Oceania) and the World consolidated information are also included, so these regions will be 
                         separated from the database of countries to be used accordingly (the regions do not present any null value).</li>
                     <li><b>Indicator</b> has only one vale (Temperature change with respect to a baseline climatology, corresponding to the period 1951-1980) which is mentioned and should
                         be only considered for context but it does not provide additional information for each country.</li>
@@ -147,7 +147,7 @@
                     <h3>General analysis</h3>
                     <h5>World</h5>
                 </div>
-                <p style="text-align: justify;">
+                <p>
                     The world subset contains no null or missing values for the temperature change variable. A general statistical analysis is presented below. 
                     However, since the data represents a time series, the analysis should not be interpreted without considering the temporal context. 
                     Key observations include that the lowest recorded drop in temperature relative to the baseline is <b>-0.313°C</b>, while the highest recorded increase is <b>1.767°C</b>. 
@@ -182,10 +182,77 @@
                     This acceleration underscores the urgency of addressing global warming trends.
                 </p>
             </div>
-            <div class="subtitle_left">
-                <h5>Continents</h5>
-                <p>Work in progress...</p>
+            <div class="col-md-12 mt-3">
+                <div class="subtitle_left">
+                    <h5>Continents</h5>
+                </div>
+                <p>The continents, as mentioned before, are Africa, Americas (this includes North, Central, South America and the Caribbean),
+                     Antartica, Asia, Europe and Oceania. 
+                    As in the world subset, there is no missing nor null values in the data for the continents.</p>
             </div>
+            <div class="col-md-12 mt-3 d-flex justify-content-center">
+                <img src="assets/code_DfTempContUnpivot_describe.png" 
+                     alt="Continents Temperature Change general summary" 
+                     class="img-fluid" style="max-width: 30%; height: auto;">
+            </div>
+            <div class="col-md-12 mt-3">
+                <p>A general stats analysis for continents helps understanding that the world information is not based on the simple average
+                    of the continents measures. Is expected that the world information considers surface area of continents and it is not clear if 
+                    non continental areas (oceans for example) are included in the measures. For now, the analysis is assumed to include only
+                    continental land areas.</p>
+                <p>When analyzing by continent the general stats, it is clear the differences between them.</p>
+            </div>
+            <div class="col-md-12 mt-3 d-flex justify-content-center">
+                <img src="assets/code_DfTempContPivot_describe.png" 
+                     alt="Continents Temperature Change general summary" 
+                     class="img-fluid" style="max-width: 30%; height: auto;">
+            </div>
+            <div class="col-md-12 mt-3">
+            <p>As in the World stats, these results are only partial, since the time factor is not being considered, but some highlights 
+                could be made and then confirmed through a more in depth anaylsis.
+            <li>Europe has the highest mean on temperature change, while Antartica has the lowest</li>
+            <li>Europe has the highest increase and the lowest decrease registered</li>
+            <li>Asia and Europe had at least +1°C increase in around 15 of the last 63 years registered</li>
+                
+            To have a better understanding of changes, the graph below shows the registries and the trend for each continent.
+            </p>
+            </div>
+            <div class="col-md-12 mt-3 d-flex justify-content-center">
+                <img src="assets/gph_ContinentsTempChange.png" 
+                     alt="Continents Temperature Change general summary" 
+                     class="img-fluid" style="max-width: 100%; height: auto;">
+                
+                <img src="assets/gph_ContinentsLatCover.png" 
+                     alt="Continents Temperature Change general summary" 
+                     class="img-fluid" style="max-width: 100%; height: auto;">
+            </div>
+            <div class="col-md-12 mt-3">
+                <p>From the graph on the left, it is clear that the 6 continents have an increasing trend, being Europe the continent with the most upward trend of all.
+                    Asia, the Americas and Africa have a very similar trend around the world's average.
+                    Although the Antartica is the continent with the lowest increase trend, and was up to 1990 in a steady one, it has increase
+                    gradually and the temperatures below the baseline are less common since 2005.                   
+                </p>
+
+                <p>The second graph shows the latitude coverage of each continent. 
+                    There seems to be a correlation between the latitude ranges, with the actual trend.
+                    For example, being the Americas the longest continent, covering almost all the latitudes, the average increase is the nearest
+                    to that of the world. Continents north to the Equator (Latitude 0), seem to have a higher trend from those in the south.
+                    Notice it is not related to the length (in latitude coverage) related, since continents with similar range have different trends.
+                    Another option could be that the trend could relate to the continental mass, but it looks like this is not the case since Asia
+                    is the biggest continent (43.8M km2), then the Americas (42.3M km2), Africa (30.3M km2), Antartica (13.7M km2), Europe (10.2M km2)
+                    and finally Oceania (8.7M km2).
+                </p>
+                <p>The objective of this analysis is to prove that the impact of increase in temperature is related to the latitude coverage. 
+                    In order to do so, the analysis should be done by country (the smallest region available for anlaysis in the dataset from the IMF).
+                    If this hypothesis is correct, countries north to the Equator should have a statistically significant higher trend from 
+                    those in the south, even when they are in the same continent. And countries from different continents, but with similar 
+                    latitudinal range, should have a similar trend.
+                </p>
+                </div>
+            
+
+            
+            
         </div>
 
     

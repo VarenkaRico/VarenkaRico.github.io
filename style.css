@@ -48,15 +48,18 @@
 p{
     font-family: "arial";
     font-size: 15px;
-    text-align: justify
+    text-align: justify;
 }
 
 li{
-    text-align: justify
+    font-family: "arial";
+    text-align: justify;
+    font-size: 15px;
 }
 
 ul{
     list-style-position: inside;
+    font-size: 15px;
 }
 
 img{
