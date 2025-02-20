@@ -1,0 +1,12 @@
+-----New Execution----
+ETL preprocess
+2025-02-19 23:54:12.804116:Ok loading train data:Ok
+2025-02-19 23:54:12.804116:Ok loading item_categories data:Ok
+2025-02-19 23:54:12.849015:Ok loading items data:Ok
+2025-02-19 23:54:12.849619:Ok loading shops data:Ok
+2025-02-19 23:54:12.881252:Ok cleaning Catalogs:Ok
+2025-02-19 23:54:12.881252:Ok spliting cat_categories_item:Ok
+2025-02-19 23:54:12.881252:Ok spliting cat_shops:Ok
+2025-02-19 23:54:15.129254: Ok merging tables: Ok
+2025-02-19 23:54:33.675293: Ok transforming dates: Ok
+2025-02-19 23:54:55.492944: Ok saving sales_train_complete.csv: Ok

@@ -1,3 +1,6 @@
+#fun_clean_catalogs
+
+#Import libraries
 import pandas as pd
 
 def fun_clean_categories(cat):
