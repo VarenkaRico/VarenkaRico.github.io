@@ -133,12 +133,12 @@
                     the corresponding variable 'TempChange'. This will help with the analysis performance. Additionally, a 'Year_Num' as a discrete variable instead of categorical.</li>
                     </p>
                     
-                </div>
+            </div>
             
-                <div class="col-md-4 mt-3" style="align-content: center;">
-                    <img src="assets/code_DfTempCtryUnpivot.png" 
-                        alt="Trafficlight for climate change" class="img-fluid" alt="Responsive image">
-                </div>
+            <div class="col-md-4 mt-3" style="align-content: center;">
+                <img src="assets/code_DfTempCtryUnpivot.png" 
+                    alt="Trafficlight for climate change" class="img-fluid" alt="Responsive image">
+            </div>
         </div>
 
         <div class="row">
@@ -171,7 +171,7 @@
             <div class="col-md-12 mt-3 d-flex justify-content-center">
                 <img src="assets/gph_WorldTempChange.png" 
                      alt="World Temperature Change general summary" 
-                     class="img-fluid" style="max-width: 100%; height: auto;">
+                     class="img-fluid" style="max-width: 900px; height: auto;">
             </div>
             <div class="col-md-12 mt-3">
                 <p style="text-align: justify;">
@@ -217,22 +217,21 @@
             To have a better understanding of changes, the graph below shows the registries and the trend for each continent.
             </p>
             </div>
-            <div class="col-md-12 mt-3 d-flex justify-content-center">
+            <div class="col-md-12 d-flex  justify-content-center">
                 <img src="assets/gph_ContinentsTempChange.png" 
-                     alt="Continents Temperature Change general summary" 
-                     class="img-fluid" style="max-width: 100%; height: auto;">
+                    alt="Continents Temperature Change general summary" 
+                    class="img-fluid" style="max-width: 900px;  margin-bottom: 0;">
                 
                 <img src="assets/gph_ContinentsLatCover.png" 
-                     alt="Continents Temperature Change general summary" 
-                     class="img-fluid" style="max-width: 100%; height: auto;">
+                    alt="Continents Temperature Change general summary" 
+                    class="img-fluid" style="max-width: 450px;  height: auto; margin-bottom: 0;">
             </div>
-            <div class="col-md-12 mt-3">
+            <div class="col-md-12">
                 <p>From the graph on the left, it is clear that the 6 continents have an increasing trend, being Europe the continent with the most upward trend of all.
                     Asia, the Americas and Africa have a very similar trend around the world's average.
                     Although the Antartica is the continent with the lowest increase trend, and was up to 1990 in a steady one, it has increase
                     gradually and the temperatures below the baseline are less common since 2005.                   
                 </p>
-
                 <p>The second graph shows the latitude coverage of each continent. 
                     There seems to be a correlation between the latitude ranges, with the actual trend.
                     For example, being the Americas the longest continent, covering almost all the latitudes, the average increase is the nearest
@@ -249,7 +248,51 @@
                     latitudinal range, should have a similar trend.
                 </p>
                 </div>
-            
+                <div class="col-md-12 mt-3">
+                    <div class="subtitle_left">
+                        <h5>Countries</h5>
+                    </div>
+                    <p>There are 229 countries with temperature registries in the table, all having an ISO identifier. 
+                        Analyzing the data, the total number of missing values are 1,620 distributed unevenly in 74 countries. 
+                        12 countries have only 1 missing value and Virgina has the highest null values count of 57.</p>
+                    
+                        <div class="col-md-12 mt-3 d-flex justify-content-center">
+                            <img src="assets/gph_NullValuesCountry.png" 
+                                 alt="Countries with null values" 
+                                 class="img-fluid" style="max-width: 900px; height: auto;">
+                        </div>
+
+                    <p>To address this issue, there are multiple options:
+                        <li>Delete rows with missing values</li>
+                        <li>Delete columns with missing values</li>
+                        <li>Input data (average, expected value based on tendency, correlated data)</li>
+                        <li>Leave them as nulls</li>
+                    </p>
+                    <p>The options will be evaluated case by case, but deleting columns with missing values is not an option since missing values 
+                        are not focused in one specific year or time period, as it can be appreciated in the following data mapping.
+                        But it is clear that there are periods of time where missing values are more common than others, take for example the years before 1992, it seems
+                        many countries have missing data for previous years. This and each cases is analyzed to determine the best course of action.
+                    </p>
+                    <div class="col-md-12 mt-3 d-flex justify-content-center">
+                        <img src="assets/gph_NullValuesMap.png" 
+                             alt="Continents Temperature Change general summary" 
+                             class="img-fluid" style="max-width: 900px; height: 50%;">
+                    </div>
+                    <p>For the options not discarded, deleting rows (countries) could be considered when the number of years missing are more than the years with data
+                        and probably the surface area of the country is not large. If a country is big in size, probably the coverage of latitude will also be large, 
+                        eliminating this information could have an impact on the analysis and results. To determine what is small enough to be considered for discarding
+                        I used a simple rule, if the country is in the first 5% of surface area (q05) it can be discarded, this means up to 12 countries.
+                        After analyzing the information of countries' surface area, the countries that are in the q05 should have an area around 900km2 or less.
+                        At the moment it is not clear if these countries are between those with many missing values, but for now are candidates to be discarded.
+                        The information can be reviewed in this 
+                        <a href="Exhibit2_DataCountriesArea.html" target ="_blank">table</a>
+                    </p>
+                    <div class="col-md-12 mt-3 d-flex justify-content-center">
+                        <img src="assets/gph_QQSurfaceArea.png" 
+                             alt="Continents Temperature Change general summary" 
+                             class="img-fluid" style="max-width: 900px; height: 50%;">
+                    </div>
+                </div>
 
             
             

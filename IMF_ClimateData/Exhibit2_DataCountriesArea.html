@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Varenka Rico's Projects</title>
+
+  <!-- Bootstrap stylesheet -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script> <!-- CSV Parsing Library -->
+  
+  <link rel="stylesheet" href="../style.css">
+</head>
+ 
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="../assets/VRJ_Logo.png" alt="Varenka Rico Logo" class="img_logo" />
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="../index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projects</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="../PyWeather.html">PyWeather</a>
+                    <a class="dropdown-item" href="ChangeTemp.html">Temperature Change (FMI)</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown_CV" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Download CV</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown_CV">
+                    <a class="dropdown-item" href="https://drive.google.com/file/d/1deuqCQOWFFb0eqaUEgkWqdl53xblzKrk/view?usp=sharing">Español</a>
+                    <a class="dropdown-item" href="https://drive.google.com/file/d/1ZaEjM5Fpjwd1jSh0Z9VWN9tHVF-tctj9/view?usp=sharing">English</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </nav>
+
+    <!-- Table Container -->
+    <div class="container mt-4">
+        <h2 class="text-center">Country Data</h2>
+        <div id="table-container" class="table-responsive overflow-auto"></div>
+    </div>
+
+    <!-- Script to Load CSV -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const csvFilePath = "assets/tbl_CountryArea.csv"; // Update path if necessary
+        const tableContainer = document.getElementById("table-container");
+
+        fetch(csvFilePath)
+            .then(response => response.text())
+            .then(csvText => {
+                Papa.parse(csvText, {
+                    header: true,  // Automatically use first row as headers
+                    skipEmptyLines: true, // Ignore blank lines
+                    complete: function (results) {
+                        const tableHTML = generateTable(results.data);
+                        tableContainer.innerHTML = tableHTML;
+                    }
+                });
+            })
+            .catch(error => console.error("Error loading CSV:", error));
+
+        function generateTable(data) {
+            if (data.length === 0) return "<p class='text-danger text-center'>No data available</p>";
+
+            let table = '<table class="table table-bordered table-striped table-hover text-center">';
+            
+            // Table Headers
+            table += "<thead class='thead-dark'><tr>";
+            Object.keys(data[0]).forEach(header => {
+                table += `<th>${header.trim()}</th>`;
+            });
+            table += "</tr></thead>";
+
+            // Table Rows
+            table += "<tbody>";
+            data.forEach(row => {
+                table += "<tr>";
+                Object.values(row).forEach(cell => {
+                    table += `<td>${cell.trim()}</td>`;
+                });
+                table += "</tr>";
+            });
+            table += "</tbody></table>";
+
+            return table;
+        }
+    });
+    </script>
+
+</body>
+</html>
