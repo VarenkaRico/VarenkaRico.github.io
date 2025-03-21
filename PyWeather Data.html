@@ -14,6 +14,8 @@
   
 </head>
  
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
   CsvToHtmlTable.init({
     csv_path: 'PyWeather Output/Weather_df.csv',
@@ -23,3 +25,9 @@
     datatables_options: {"paging": false}
   });
 </script>
+
+  <script>
+    $(function () {
+      $("#navbar-placeholder").load("navbar.html");
+    });
+  </script>
