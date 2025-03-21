@@ -50,14 +50,14 @@
 
     <!-- Table Container -->
     <div class="container mt-4">
-        <h2 class="text-center">Country Data</h2>
+        <h2 class="text-center">Missing data imputation strategy by country</h2>
         <div id="table-container" class="table-responsive overflow-auto"></div>
     </div>
 
     <!-- Script to Load CSV -->
     <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const csvFilePath = "assets/tbl_CountryArea.csv"; // Update path if necessary
+        const csvFilePath = "assets/tbl_MissingDataImputationStrategy.csv";
         const tableContainer = document.getElementById("table-container");
 
         fetch(csvFilePath)

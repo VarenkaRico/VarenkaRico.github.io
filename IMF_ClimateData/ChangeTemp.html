@@ -17,7 +17,16 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Load Navbar -->
+  <div id="navbar-placeholder"></div>
+
+  <script>
+    $(function () {
+      $("#navbar-placeholder").load("../navbar.html");
+    });
+  </script>
+ 
+    <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <img src="../assets/VRJ_Logo.png" alt="Varenka Rico Logo" class="img_logo" />
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +54,7 @@
                 </li>
             </ul>
         </div>
-    </nav>
+    </nav>-->
     <div class="container-fluid">
         <!-- HEADER -->
         <div class="row">
@@ -249,50 +258,87 @@
                 </p>
                 </div>
                 <div class="col-md-12 mt-3">
-                    <div class="subtitle_left">
-                        <h5>Countries</h5>
-                    </div>
-                    <p>There are 229 countries with temperature registries in the table, all having an ISO identifier. 
-                        Analyzing the data, the total number of missing values are 1,620 distributed unevenly in 74 countries. 
-                        12 countries have only 1 missing value and Virgina has the highest null values count of 57.</p>
+                    <section id="CountryAnalysis">
+                        <div class="subtitle_left">
+                            <h5>Countries</h5>
+                        </div>
+                        <p>
+                            The dataset includes temperature records for <b>229 countries</b>, each identified with a unique ISO code. Among them, 
+                            <b>74 countries</b> contain missing values, totaling <b>1,620 null entries</b>. 
+                            While <b>12 countries</b> have only a single missing value, the country with the highest count is <b>Virgin Islands</b>, 
+                            reporting <b>57 missing values</b>.    
+                        </p>
                     
                         <div class="col-md-12 mt-3 d-flex justify-content-center">
                             <img src="assets/gph_NullValuesCountry.png" 
-                                 alt="Countries with null values" 
-                                 class="img-fluid" style="max-width: 900px; height: auto;">
+                                alt="Countries with null values" 
+                                class="img-fluid" style="max-width: 900px; height: auto;">
                         </div>
 
-                    <p>To address this issue, there are multiple options:
-                        <li>Delete rows with missing values</li>
-                        <li>Delete columns with missing values</li>
-                        <li>Input data (average, expected value based on tendency, correlated data)</li>
-                        <li>Leave them as nulls</li>
-                    </p>
-                    <p>The options will be evaluated case by case, but deleting columns with missing values is not an option since missing values 
-                        are not focused in one specific year or time period, as it can be appreciated in the following data mapping.
-                        But it is clear that there are periods of time where missing values are more common than others, take for example the years before 1992, it seems
-                        many countries have missing data for previous years. This and each cases is analyzed to determine the best course of action.
-                    </p>
-                    <div class="col-md-12 mt-3 d-flex justify-content-center">
-                        <img src="assets/gph_NullValuesMap.png" 
-                             alt="Continents Temperature Change general summary" 
-                             class="img-fluid" style="max-width: 900px; height: 50%;">
-                    </div>
-                    <p>For the options not discarded, deleting rows (countries) could be considered when the number of years missing are more than the years with data
-                        and probably the surface area of the country is not large. If a country is big in size, probably the coverage of latitude will also be large, 
-                        eliminating this information could have an impact on the analysis and results. To determine what is small enough to be considered for discarding
-                        I used a simple rule, if the country is in the first 5% of surface area (q05) it can be discarded, this means up to 12 countries.
-                        After analyzing the information of countries' surface area, the countries that are in the q05 should have an area around 900km2 or less.
-                        At the moment it is not clear if these countries are between those with many missing values, but for now are candidates to be discarded.
-                        The information can be reviewed in this 
-                        <a href="Exhibit2_DataCountriesArea.html" target ="_blank">table</a>
-                    </p>
-                    <div class="col-md-12 mt-3 d-flex justify-content-center">
-                        <img src="assets/gph_QQSurfaceArea.png" 
-                             alt="Continents Temperature Change general summary" 
-                             class="img-fluid" style="max-width: 900px; height: 50%;">
-                    </div>
+                        <p>
+                            Several strategies can be considered to address these missing values:
+                            <ul>
+                                <li>Remove rows containing missing values</li>
+                                <li>Remove columns with missing values</li>
+                                <li>Impute missing data (e.g., with averages, estimated trends, or correlated variables)</li>
+                                <li>Leave the missing values as nulls</li>
+                            </ul>
+                        </p>
+                        <p>
+                            Removing entire columns is not viable, as the missing values are not concentrated in a specific time period or year. 
+                            This can be observed in the following nall data mapping. That said, some patterns are still noticeable — 
+                            for example, years prior to <b>1992</b> show higher instances of missing data across multiple countries.
+                            Each case will be evaluated individually to determine the most appropriate handling method.
+                        </p>
+
+                        <div class="col-md-12 mt-3 d-flex justify-content-center">
+                            <img src="assets/gph_NullValuesMap.png" 
+                                alt="Continents Temperature Change general summary" 
+                                class="img-fluid" style="max-width: 900px; height: 50%;">
+                        </div>
+
+                        <p> For countries with extensive missing data — particularly when the number of missing years exceeds the number of valid data years — 
+                            row deletion may be considered. However, this approach will factor in the country's size. 
+                            Larger countries typically cover broader geographic areas, especially in latitude, making their exclusion more impactful. 
+                            To establish a cut-off, countries falling within the <b>bottom 5% (q05)</b> in terms of land area (approximately <b>900 km²</b> or less) 
+                            are considered candidates for removal. This threshold affects up to <b>12 countries</b>.
+                        </p>
+                        <p>
+                            Whether these small-area countries overlap with those having significant missing data is yet to be determined. 
+                            However, they are currently flagged for potential exclusion. 
+                            Detailed information can be found in this 
+                                <a href="Exhibit2_DataCountriesArea.html" target="_blank">Countries' surface area table</a>.
+                        </p>
+                        
+                        <div class="col-md-12 mt-3 d-flex justify-content-center">
+                            <img src="assets/gph_QQSurfaceArea.png" 
+                                alt="Continents Temperature Change general summary" 
+                                class="img-fluid" style="max-width: 900px; height: 50%;">
+                        </div>
+
+                        <p>
+                            Based on the analysis of missing data and surface area, a total of <b>six countries</b> will be excluded from further analysis. 
+                            These countries either have extremely limited data coverage or fall within the bottom 5% (<b>q05</b>) of surface area, 
+                            making them unreliable or statistically insignificant for meaningful inclusion. The selected countries are: 
+                            <ul>
+                                <li><b>British Virgin Islands (VG)</b>: Only 6 records are available, covering 1961 to 1966, with a surface of 151 km2.</li>
+                                <li><b>Turks and Caicos Islands (TC)</b>: Records exist for 1961 - 1966 and 1971 - 1974.
+                                    Despite having a surface area above the q05 threshold, the <b>sparse data distribution</b> makes reliable imputation strategies infeasible. </li>
+                                <li><b>Nauru (NR)</b>: Records from 1961, 1966 and the period 1971 - 1978, with a surface of 21 km2.</li>
+                                <li><b>Falkand Islands (FK)</b>: Data covers only the period 1961 - 1970. 
+                                    Although the surface area is above q05, the <b>data coverage is too limited</b> for meaningful analysis, leading to its exclusion.</li>
+                                <li><b>Niue (NU)</b>: Records span 1961 to 1992, but the surface area is below q05.</li>
+                                <li><b>Pitcairn (PN)</b>: Records cover 1961 to 2010, but the surface area is below q05.</li>
+                            </ul>
+                        </p>
+                        <p>
+                            The rest of the countries will be kept for analysis. Different approaches will be used to impute missing data.
+                            The complete information for each country strategy is in the 
+                                <a href="Exhibit3_MissingDataImputationStrategy.html" target="_blank">Missing data strategy by country table</a>.
+                        </p>
+                    </section>
                 </div>
+            
 
             
             
