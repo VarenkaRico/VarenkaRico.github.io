@@ -17,14 +17,7 @@
 </head>
 
 <body>
-    <!-- Load Navbar -->
-  <div id="navbar-placeholder"></div>
 
-  <script>
-    $(function () {
-      $("#navbar-placeholder").load("../navbar.html");
-    });
-  </script>
  
     <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <img src="../assets/VRJ_Logo.png" alt="Varenka Rico Logo" class="img_logo" />
@@ -344,7 +337,13 @@
             
         </div>
 
-    
+      <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(function () {
+      $("#navbar-placeholder").load("https://varenkarico.github.io/navbar.html");
+    });
+  </script>
 </body>
 
 </html>
